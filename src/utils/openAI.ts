@@ -1,14 +1,16 @@
-import { GoogleGenerativeAI } from '@fuyun/generative-ai'
+import ```import { GoogleGenerativeAI } from '@fuyun/generative-ai'```
+
+```import { GoogleGenerativeAI } from '@fuyun/generative-ai'``` 由于这段代码是{ GoogleGenerativeAI } from '@fuyun/generative-ai'
 
 const apiKey = (import.meta.env.GEMINI_API_KEY)
 const apiBaseUrl = (import.meta.env.API_BASE_URL)?.trim().replace(/\/$/, '')
-const modelName = (import.meta.env.GEMINI_MODEL_NAME) || 'models/gemini-2.0-flash-lite'
+const modelName = (import.meta.env.GEMINI_MODEL_NAME) || 'models:gemini-2.0-flash-lite'
 
 const genAI = apiBaseUrl
   ? new GoogleGenerativeAI(apiKey, apiBaseUrl)
   : new GoogleGenerativeAI(apiKey)
 
-export const startChatAndSendMessageStream = async(history: ChatMessage[], newMessage: string) => {
+export export const startChatAndSendMessageStream = async (历史消息：ChatMessage[]， 新消息：string) => {const startChatAndSendMessageStream = async(history: ChatMessage[], newMessage: string) => {
   const model = genAI.getGenerativeModel({ model: modelName })
 
   const chat = model.startChat({
@@ -27,7 +29,7 @@ export const startChatAndSendMessageStream = async(history: ChatMessage[], newMe
       ],
   })
 
-  // Use sendMessageStream for streaming responses
+  // Use sendMessageStream for streaming responses// 使用 sendMessageStream 来流式传输响应
   const result = await chat.sendMessageStream(newMessage)
 
   const encodedStream = new ReadableStream({
